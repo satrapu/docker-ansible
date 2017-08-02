@@ -49,7 +49,7 @@ docker container run \ <br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--rm -it \ <br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-v D:\Satrapu\Ansible\:/opt/ansible-playbooks \ <br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ansible-alpine-apk \ <br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ansible-playbook ./hello-world/hello-world.yml<sup><a href=#hello-world-yml">1</a><sup>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ansible-playbook ./hello-world/hello-world.yml<sup><a href="#hello-world-yml">1</a><sup>
 </code>
 
 ## Dockerfile-pip
@@ -81,7 +81,7 @@ docker container run \ <br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--rm -it \ <br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-v D:\Satrapu\Ansible\:/opt/ansible-playbooks \ <br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ansible-alpine-pip \ <br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ansible-playbook ./hello-world/hello-world.yml<sup><a href=#hello-world-yml">1</a><sup>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ansible-playbook ./hello-world/hello-world.yml<sup><a href="#hello-world-yml">1</a><sup>
 </code>
 
 <a name="hello-world-yml">1</a> The Ansible playbook **hello-world.yml** can be found [here](https://gist.github.com/satrapu/31b1a03f321990f8d9ae067372a8b456).
