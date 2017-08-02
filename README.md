@@ -35,11 +35,11 @@ docker image build \
 ### Run Docker container
 
 ````bash
- docker container run \
-        --rm -it \
-        -v <DOCKER_HOST_ANSIBLE_PLAYBOOK_HOME>:/opt/ansible-playbooks \
-        ansible-alpine-apk \
-        ansible-playbook <ANSIBLE_PLAYBOOK>
+docker container run \
+       --rm -it \
+       -v <DOCKER_HOST_ANSIBLE_PLAYBOOK_HOME>:/opt/ansible-playbooks \
+       ansible-alpine-apk \
+       ansible-playbook <ANSIBLE_PLAYBOOK>
 ````
 
 ## Dockerfile-pip
@@ -57,9 +57,9 @@ docker image build \
 ### Run Docker container
 
 ````bash
- docker container run \
-        --rm -it \
-        -v <DOCKER_HOST_ANSIBLE_PLAYBOOK_HOME>:/opt/ansible-playbooks \
-        ansible-alpine-pip \
-        ansible-playbook <ANSIBLE_PLAYBOOK>
+docker container run \
+       --rm -it \
+       -v <DOCKER_HOST_ANSIBLE_PLAYBOOK_HOME>:/opt/ansible-playbooks \
+       ansible-alpine-pip \
+       ansible-playbook <ANSIBLE_PLAYBOOK>
 ````
