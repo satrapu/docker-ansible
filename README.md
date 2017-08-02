@@ -42,6 +42,16 @@ docker container run \
        ansible-playbook <ANSIBLE_PLAYBOOK>
 ````
 
+Example (ConEmu PowerShell tab; Docker version 17.06.0-ce, build 02c1d87; Windows 10 Pro, version 1703)
+
+````powershell
+docker container run \
+       --rm -it \
+       -v D:\Satrapu\Ansible\:/opt/ansible-playbooks \
+       ansible-alpine-apk \
+       ansible-playbook ./hello-world/hello-world.yml <sup>1</sup>
+````
+
 ## Dockerfile-pip
 
 ### Build Docker image
@@ -63,3 +73,17 @@ docker container run \
        ansible-alpine-pip \
        ansible-playbook <ANSIBLE_PLAYBOOK>
 ````
+
+Example (ConEmu PowerShell tab; Docker version 17.06.0-ce, build 02c1d87; Windows 10 Pro, version 1703)
+
+````powershell
+docker container run \
+       --rm -it \
+       -v D:\Satrapu\Ansible\:/opt/ansible-playbooks \
+       ansible-alpine-pip \
+       ansible-playbook ./hello-world/hello-world.yml <sup>1</sup>
+````
+
+#
+
+1 - The Ansible playbook **hello-world.yml** can be found [here](https://gist.github.com/satrapu/31b1a03f321990f8d9ae067372a8b456).
