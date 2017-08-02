@@ -49,7 +49,7 @@ docker container run \
        --rm -it \
        -v D:\Satrapu\Ansible\:/opt/ansible-playbooks \
        ansible-alpine-apk \
-       ansible-playbook ./hello-world/hello-world.yml <sup>1</sup>
+       ansible-playbook ./hello-world/hello-world.yml^1^
 ````
 
 ## Dockerfile-pip
@@ -81,7 +81,7 @@ docker container run \
        --rm -it \
        -v D:\Satrapu\Ansible\:/opt/ansible-playbooks \
        ansible-alpine-pip \
-       ansible-playbook ./hello-world/hello-world.yml <sup>1</sup>
+       ansible-playbook ./hello-world/hello-world.yml^1^
 ````
 
 #
