@@ -25,13 +25,21 @@ This repository contains several Dockerfiles, each one used for building an Ansi
 ### Build Docker image
 
 ````bash
-docker image build --file Dockerfile-apk --tag ansible-alpine-apk:2.3.1.0-r0 --tag ansible-alpine-apk:latest .
+docker image build \
+       --file Dockerfile-apk \
+       --tag ansible-alpine-apk:2.3.1.0-r0 \
+       --tag ansible-alpine-apk:latest \
+       .
 ````
 
 ### Run Docker container
 
 ````bash
- docker container run --rm -it -v <DOCKER_HOST_ANSIBLE_PLAYBOOK_HOME>:/opt/ansible-playbooks ansible-alpine-apk ansible-playbook <ANSIBLE_PLAYBOOK>
+ docker container run \
+        --rm -it \
+        -v <DOCKER_HOST_ANSIBLE_PLAYBOOK_HOME>:/opt/ansible-playbooks \
+        ansible-alpine-apk \
+        ansible-playbook <ANSIBLE_PLAYBOOK>
 ````
 
 ## Dockerfile-pip
@@ -39,11 +47,19 @@ docker image build --file Dockerfile-apk --tag ansible-alpine-apk:2.3.1.0-r0 --t
 ### Build Docker image
 
 ````bash
-docker image build --file Dockerfile-pip --tag ansible-alpine-pip:2.3.1.0 --tag ansible-alpine-pip:latest .
+docker image build \
+       --file Dockerfile-pip \
+       --tag ansible-alpine-pip:2.3.1.0 \
+       --tag ansible-alpine-pip:latest \
+       .
 ````
 
 ### Run Docker container
 
 ````bash
- docker container run --rm -it -v <DOCKER_HOST_ANSIBLE_PLAYBOOK_HOME>:/opt/ansible-playbooks ansible-alpine-pip ansible-playbook <ANSIBLE_PLAYBOOK>
+ docker container run \
+        --rm -it \
+        -v <DOCKER_HOST_ANSIBLE_PLAYBOOK_HOME>:/opt/ansible-playbooks \
+        ansible-alpine-pip \
+        ansible-playbook <ANSIBLE_PLAYBOOK>
 ````
