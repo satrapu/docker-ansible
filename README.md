@@ -2,7 +2,7 @@
 
 ## Description
 
-This repository contain several Dockerfile, each one used for building Ansible Docker images.
+This repository contains several Dockerfiles, each one used for building an Ansible Docker images.
 
 * [Dockerfile-apk](./Dockerfile-apk)
   * Uses Alpine Linux apk package management tool for installing Ansible
