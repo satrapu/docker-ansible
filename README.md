@@ -45,11 +45,7 @@ docker container run \
 Example (ConEmu PowerShell tab; Docker version 17.06.0-ce, build 02c1d87; Windows 10 Pro, version 1703)
 
 <code lang="powershell">
-docker container run \ <br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--rm -it \ <br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-v D:\Satrapu\Ansible\:/opt/ansible-playbooks \ <br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ansible-alpine-apk \ <br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ansible-playbook ./hello-world/hello-world.yml<sup><a href="#hello-world-yml">1</a><sup>
+docker container run --rm -it -v D:\Satrapu\Ansible\:/opt/ansible-playbooks ansible-alpine-apk ansible-playbook ./hello-world/hello-world.yml<sup><a href="#hello-world-yml">1</a><sup>
 </code>
 
 ## Dockerfile-pip
@@ -77,11 +73,7 @@ docker container run \
 Example (ConEmu PowerShell tab; Docker version 17.06.0-ce, build 02c1d87; Windows 10 Pro, version 1703)
 
 <code lang="powershell">
-docker container run \ <br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--rm -it \ <br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-v D:\Satrapu\Ansible\:/opt/ansible-playbooks \ <br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ansible-alpine-pip \ <br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ansible-playbook ./hello-world/hello-world.yml<sup><a href="#hello-world-yml">1</a><sup>
+docker container run --rm -it -v D:\Satrapu\Ansible\:/opt/ansible-playbooks ansible-alpine-pip ansible-playbook ./hello-world/hello-world.yml<sup><a href="#hello-world-yml">1</a><sup>
 </code>
 
 ---
