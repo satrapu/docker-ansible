@@ -18,7 +18,7 @@ This repository contains several Dockerfiles, each one used for building an Ansi
       * Not that small ~ 250MB
       * Able to run (almost) all available Ansible versions
     * Cons
-      * Unable to run Ansible latest & greatest, since it's limited to the published apk Ansible packages
+      * Might not be able to run Ansible latest & greatest, since it's limited to the published pip Ansible packages
 
 ## Dockerfile-apk
 
