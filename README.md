@@ -8,7 +8,7 @@ This repository contains several Dockerfiles, each one used for building an Ansi
   * Uses Alpine Linux apk package management tool for installing Ansible
   * Ansible packages can be found [here](https://pkgs.alpinelinux.org/packages?name=ansible&branch=v3.6)
   * Pros
-    * Rather small ~ 84MB
+    * Rather small ~ 97MB
   * Cons
     * Unable to run Ansible latest & greatest, since it's limited to the published apk Ansible packages
 * [Dockerfile-pip](./Dockerfile-pip)
