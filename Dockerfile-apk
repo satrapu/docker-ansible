@@ -1,25 +1,18 @@
-FROM alpine:3.6
+FROM alpine:3.7
 LABEL maintainer="Bogdan Marian <satrapu@users.noreply.github.com>"
 
 # Ansible releases one should install on Alpine Linux can be found here: https://pkgs.alpinelinux.org/packages?name=ansible&branch=v3.6
-ARG ANSIBLE_VERSION="2.3.1.0-r0"
+ARG ANSIBLE_VERSION="2.4.1.0-r0"
 ARG ANSIBLE_PLAYBOOKS_HOME="/opt/ansible-playbooks"
+
+COPY resources/ansible.cfg /etc/ansible/
 
 # The folder containing the Ansible playbooks found on the Docker host
 VOLUME [$ANSIBLE_PLAYBOOKS_HOME]
 WORKDIR $ANSIBLE_PLAYBOOKS_HOME
 
-RUN apk add --no-cache \
-        # Install Ansible specific package using apk
-        ansible=$ANSIBLE_VERSION && \
-
-    # Cleanup
-    rm -f /var/cache/apk/* && \
-
-    # Add Ansible machine config file
-    mkdir -p /etc/ansible && \
-    echo 'localhost' > /etc/ansible/hosts && \
-    echo $'# Ensure no issue will occur when using long ansible_ssh_user variables, as documented here:\n# https://github.com/ansible/ansible/issues/11536#issuecomment-120092814\n\
-[ssh_connection]\n\
-control_path=%(directory)s/%%h-%%p-%%r'\
-    > /etc/ansible/ansible.cfg
+RUN apk add --no-cache ansible=$ANSIBLE_VERSION \
+    # Avoid a series of warnings
+    && echo 'localhost' > /etc/ansible/hosts \
+    # Remove no longer needed files
+    && rm -f /var/cache/apk/*
