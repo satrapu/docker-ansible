@@ -1,0 +1,7 @@
+# ignore everything
+*/
+
+# ensure "resources" folder is no ignored, as it contains 
+# everything which must be copied inside Docker image
+# at build time
+!/resources/
