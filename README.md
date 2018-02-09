@@ -15,7 +15,7 @@ This repository contains several Dockerfiles, each one used for building an Ansi
     * Uses Python pip package management tool for installing Ansible
     * Ansible packages can be found [here](https://pypi.python.org/pypi/ansible)
     * Pros
-      * Small(ish) ~ 250MB
+      * Small(ish) ~ 260MB
       * Able to run (almost) all available Ansible versions
     * Cons
       * Might not be able to run Ansible latest & greatest, since it's limited to the published pip Ansible packages
