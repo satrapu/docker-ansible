@@ -27,8 +27,8 @@ This repository contains several Dockerfiles, each one used for building an Ansi
 ````bash
 docker image build \
        --file Dockerfile-apk \
-       --tag ansible-alpine-apk:2.3.1.0-r0 \
-       --tag ansible-alpine-apk:latest \
+       --tag satrapu/ansible-alpine-apk:2.3.1.0-r0 \
+       --tag satrapu/ansible-alpine-apk:latest \
        .
 ````
 ### Image @ Docker Hub
@@ -40,7 +40,7 @@ https://hub.docker.com/r/satrapu/ansible-alpine-apk
 docker container run \
        --rm -it \
        -v <DOCKER_HOST_ANSIBLE_PLAYBOOK_HOME>:/opt/ansible-playbooks \
-       ansible-alpine-apk \
+       satrapu/ansible-alpine-apk \
        ansible-playbook <ANSIBLE_PLAYBOOK>
 ````
 
@@ -57,8 +57,8 @@ docker container run --rm -it -v D:\Satrapu\Ansible\:/opt/ansible-playbooks ansi
 ````bash
 docker image build \
        --file Dockerfile-pip \
-       --tag ansible-alpine-pip:2.3.1.0 \
-       --tag ansible-alpine-pip:latest \
+       --tag satrapu/ansible-alpine-pip:2.3.1.0 \
+       --tag satrapu/ansible-alpine-pip:latest \
        .
 ````
 
@@ -71,7 +71,7 @@ https://hub.docker.com/r/satrapu/ansible-alpine-pip
 docker container run \
        --rm -it \
        -v <DOCKER_HOST_ANSIBLE_PLAYBOOK_HOME>:/opt/ansible-playbooks \
-       ansible-alpine-pip \
+       satrapu/ansible-alpine-pip \
        ansible-playbook <ANSIBLE_PLAYBOOK>
 ````
 
