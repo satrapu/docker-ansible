@@ -31,6 +31,14 @@ docker image build \
        --tag satrapu/ansible-alpine-apk:latest \
        .
 ````
+
+### Publish Docker image to Docker Hub
+
+````bash
+docker image push satrapu/ansible-alpine-apk:2.3.1.0-r0
+docker image push satrapu/ansible-alpine-apk:latest
+````
+
 ### Image @ Docker Hub
 https://hub.docker.com/r/satrapu/ansible-alpine-apk
 
@@ -47,7 +55,7 @@ docker container run \
 Example (ConEmu PowerShell tab; Docker version 17.06.0-ce, build 02c1d87; Windows 10 Pro, version 1703)
 
 <code lang="powershell">
-docker container run --rm -it -v D:\Satrapu\Ansible\:/opt/ansible-playbooks ansible-alpine-apk ansible-playbook ./hello-world/hello-world.yml<sup><a href="#hello-world-yml">1</a><sup>
+docker container run --rm -it -v D:\\Satrapu\\Ansible:/opt/ansible-playbooks satrapu/ansible-alpine-apk ansible-playbook ./hello-world/hello-world.yml<sup><a href="#hello-world-yml">1</a><sup>
 </code>
 
 ## Dockerfile-pip
@@ -60,6 +68,13 @@ docker image build \
        --tag satrapu/ansible-alpine-pip:2.3.1.0 \
        --tag satrapu/ansible-alpine-pip:latest \
        .
+````
+
+### Publish Docker image to Docker Hub
+
+````bash
+docker image push satrapu/ansible-alpine-pip:2.3.1.0
+docker image push satrapu/ansible-alpine-pip:latest
 ````
 
 ### Image @ Docker Hub
@@ -78,7 +93,7 @@ docker container run \
 Example (ConEmu PowerShell tab; Docker version 17.06.0-ce, build 02c1d87; Windows 10 Pro, version 1703)
 
 <code lang="powershell">
-docker container run --rm -it -v D:\Satrapu\Ansible\:/opt/ansible-playbooks ansible-alpine-pip ansible-playbook ./hello-world/hello-world.yml<sup><a href="#hello-world-yml">1</a><sup>
+docker container run --rm -it -v D:\\Satrapu\\Ansible:/opt/ansible-playbooks satrapu/ansible-alpine-pip ansible-playbook ./hello-world/hello-world.yml<sup><a href="#hello-world-yml">1</a><sup>
 </code>
 
 ---
