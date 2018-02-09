@@ -1,9 +1,11 @@
-FROM alpine:3.6
+FROM alpine:3.7
 LABEL maintainer="Bogdan Marian <satrapu@users.noreply.github.com>"
 
 # Ansible releases one should install using pip can be found here: https://github.com/ansible/ansible/releases
-ARG ANSIBLE_VERSION="2.3.1.0"
+ARG ANSIBLE_VERSION="2.4.1.0"
 ARG ANSIBLE_PLAYBOOKS_HOME="/opt/ansible-playbooks"
+
+COPY resources/ansible.cfg /etc/ansible/
 
 # The folder containing the Ansible playbooks found on the Docker host
 VOLUME [$ANSIBLE_PLAYBOOKS_HOME]
@@ -16,19 +18,11 @@ RUN apk add --no-cache \
         python-dev \
         py-cffi \
         py-cryptography \
-        py-pip && \
-       
+        py-pip \
     # Install Ansible specific package using pip
-    pip install ansible==$ANSIBLE_VERSION && \
-
+    && pip install ansible==$ANSIBLE_VERSION \
+    # Avoid a series of warnings
+    && echo 'localhost' > /etc/ansible/hosts \
     # Cleanup
-    rm -f /var/cache/apk/* && \
-    rm -r /root/.cache && \
-
-    # Add Ansible machine config file
-    mkdir -p /etc/ansible && \
-    echo 'localhost' > /etc/ansible/hosts && \
-    echo $'# Ensure no issue will occur when using long ansible_ssh_user variables, as documented here:\n# https://github.com/ansible/ansible/issues/11536#issuecomment-120092814\n\
-[ssh_connection]\n\
-control_path=%(directory)s/%%h-%%p-%%r'\
-    > /etc/ansible/ansible.cfg
+    && rm -f /var/cache/apk/* \
+    && rm -r /root/.cache
