@@ -1,3 +1,4 @@
+# Install Ansible using Alpine Linux package management tool, "apk".
 FROM alpine:3.7
 LABEL maintainer="Bogdan Marian <satrapu@users.noreply.github.com>"
 
