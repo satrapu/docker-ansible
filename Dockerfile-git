@@ -1,0 +1,45 @@
+# Install Ansible from the sources hosted on GitHub (https://github.com/ansible/ansible).
+FROM alpine:3.7
+
+LABEL maintainer="Bogdan Marian <satrapu@users.noreply.github.com>"
+
+# Represents the arguments to be passed to the "git checkout" command used for fetching Ansible sources. 
+# This argument is set to the default git branch of this particular repository, "devel".
+ARG ANSIBLE_GIT_CHECKOUT_ARGS="devel"
+
+# Represents the folder on the Docker container where the Docker host Ansible playbooks will be mounted.
+ARG ANSIBLE_PLAYBOOKS_HOME="/opt/ansible-playbooks"
+
+# Represents the folder inside the Docker container where Ansible sources will be checked-out.
+ARG ANSIBLE_GIT_CHECKOUT_FOLDER="/tmp/ansible-sources"
+
+COPY resources/ansible.cfg /etc/ansible/
+
+RUN apk add --no-cache \
+        git=2.15.0-r1 \
+        build-base=0.5-r0 \
+        libffi-dev=3.2.1-r4 \
+        python2-dev=2.7.14-r2 \
+        py2-pip=9.0.1-r1 \
+        py-cryptography=2.0.3-r1 \
+        py-setuptools=33.1.1-r1 \
+        sudo=1.8.21_p2-r1 \
+    # Install Ansible from sources as documented here: http://docs.ansible.com/ansible/latest/intro_installation.html#running-from-source.
+    # TODO: Avoid cloning a large git repo by applying the things from this SO answer: https://stackoverflow.com/a/31781016.
+    && git clone https://github.com/ansible/ansible.git --recurse-submodules  $ANSIBLE_GIT_CHECKOUT_FOLDER \
+    && cd $ANSIBLE_GIT_CHECKOUT_FOLDER \
+    && git checkout $ANSIBLE_GIT_CHECKOUT_ARGS \
+    && source ./hacking/env-setup \
+    && sudo pip install -r ./requirements.txt \
+    && sudo make install \
+    && mkdir -p /etc/ansible \
+    && echo 'localhost' > /etc/ansible/hosts \
+    && rm -f /var/cache/apk/*
+
+# Mount the volume where Ansible playbooks can be found
+VOLUME [$ANSIBLE_PLAYBOOKS_HOME]
+
+# Sets the current directory to the one containing the aforementioned playbooks to allow running a container based on this image 
+# using the following CLI command (on Windows):
+# docker container run --rm -v E:\\Satrapu\\Programming\\Ansible\\hello-world:/opt/ansible-playbooks satrapu/ansible-alpine-sources:latest ansible-playbook ./hello-world.yml
+WORKDIR $ANSIBLE_PLAYBOOKS_HOME
