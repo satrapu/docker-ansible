@@ -1,7 +1,6 @@
-# ignore everything
+# Ensure Docker build context is as small as possible by ignoring everything
 */
 
-# ensure "resources" folder is no ignored, as it contains 
-# everything which must be copied inside Docker image
-# at build time
+# Ensure the "resources" folder is not ignored, as it contains 
+# everything which must be copied inside Docker image at build time
 !/resources/
