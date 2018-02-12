@@ -2,7 +2,7 @@
 FROM alpine:3.7
 LABEL maintainer="Bogdan Marian <satrapu@users.noreply.github.com>"
 
-# Ansible releases one should install on Alpine Linux can be found here: https://pkgs.alpinelinux.org/packages?name=ansible&branch=v3.6
+# The list of Ansible packages for Alpine Linux can be found here: https://pkgs.alpinelinux.org/packages?name=ansible&branch=v3.7.
 ARG ANSIBLE_VERSION="2.4.1.0-r0"
 ARG ANSIBLE_PLAYBOOKS_HOME="/opt/ansible-playbooks"
 
