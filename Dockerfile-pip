@@ -1,8 +1,9 @@
+# Install Ansible using Python package mangement tool, "pip".
 FROM alpine:3.7
 LABEL maintainer="Bogdan Marian <satrapu@users.noreply.github.com>"
 
-# Ansible releases one should install using pip can be found here: https://github.com/ansible/ansible/releases
-ARG ANSIBLE_VERSION="2.4.1.0"
+# The list of Ansible packages one can install via pip can be found here: https://pypi.python.org/pypi/ansible.
+ARG ANSIBLE_VERSION="2.5.0b1"
 ARG ANSIBLE_PLAYBOOKS_HOME="/opt/ansible-playbooks"
 
 COPY resources/ansible.cfg /etc/ansible/
@@ -13,12 +14,12 @@ WORKDIR $ANSIBLE_PLAYBOOKS_HOME
 
 RUN apk add --no-cache \
         # Install pip and its dependencies
-        build-base \
-        libffi-dev \
-        python-dev \
-        py-cffi \
-        py-cryptography \
-        py-pip \
+        build-base=0.5-r0 \
+        libffi-dev=3.2.1-r4 \
+        python2-dev=2.7.14-r2 \
+        py-cffi=1.10.0-r0 \
+        py-cryptography=2.0.3-r1 \
+        py2-pip=9.0.1-r1 \
     # Install Ansible specific package using pip
     && pip install ansible==$ANSIBLE_VERSION \
     # Avoid a series of warnings
