@@ -3,7 +3,7 @@
 ## Description
 
 This repository contains several Dockerfiles, each one used for building an Ansible Docker image using a different mechanism.
-See a more thorough explanation [here](http://crossprogramming.com/2018/02/15/running-ansible-on-windows.html).
+See a more thorough explanation [here](hhttp://crossprogramming.com/2018/02/14/running-ansible-on-windows.html).
 
 * [Dockerfile-apk](./Dockerfile-apk)
   * Uses Alpine Linux apk package management tool for installing Ansible
